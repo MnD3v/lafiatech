@@ -61,7 +61,7 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
                         
                         
                         {/* PRENDRE UN RENDEZ VOUS Button */}
-                        <button className="relative px-6 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                        <button className="hidden sm:block relative px-6 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
                             PRENDRE UN RENDEZ VOUS
                             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
                         </button>

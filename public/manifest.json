@@ -1,0 +1,27 @@
+{
+  "name": "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
+  "short_name": "LafiaTech",
+  "description": "Boîte de création de logiciels et solutions digitales au Togo. Développement d'applications web, mobiles et solutions logicielles sur mesure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF2600",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "technology", "software"],
+  "lang": "fr",
+  "dir": "ltr"
+}

@@ -10,6 +10,7 @@ import FixedAppBar from "./compents/fixed_app_bar";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Blog from "./blog/page";
+import { homePageMetadata } from "./page-metadata";
 
 export default function Home() {
   const [isInView, setIsInView] = useState(true);
@@ -27,7 +28,7 @@ export default function Home() {
             <div className=" relative">
                 <div className="absolute inset-0"></div>
       {
-        isInView && <div className='fixed flex flex-col items-center justify-center bg-[linear-gradient(225deg,_rgba(6,182,212,0.9),_rgba(139,92,246,0.9)_50%,_rgba(236,72,153,0.9))] h-full w-full z-50'>
+        isInView && <div className='fixed flex flex-col items-center justify-center bg-white h-full w-full z-50'>
           <div className='loader'></div>
         </div>}
       <motion.div

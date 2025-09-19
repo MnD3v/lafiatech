@@ -19,7 +19,7 @@ const Presentation = () => {
         }, 3000) // Change toutes les 3 secondes
 
         return () => clearInterval(interval)
-    }, [])
+    }, [rotatingElements.length])
 
     return (
         <div id="presentation" className="relative w-full bg-white min-h-screen overflow-x-hidden">
@@ -48,7 +48,7 @@ const Presentation = () => {
                                     Top 1% des meilleures
                                 </div>
                                 <div className="text-gray-900 font-bold text-xs sm:text-sm">
-                                    agences de <span className="text-[#FF2600]">France 2025</span>
+                                    agences de <span className="text-[#FF2600]">Togo 2025</span>
                                 </div>
                             </div>
 

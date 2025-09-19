@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { siteMetadata } from "./metadata";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -26,10 +27,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Manu",
-  description: "Emanuel Djatika : Trouveur de solutions.",
-};
+export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({
   children,
@@ -51,6 +49,72 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"></link>
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#FF2600" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="LafiaTech" />
+        
+        {/* Données structurées JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "LafiaTech",
+              "description": "LafiaTech est une boîte de création de logiciels et solutions digitales au Togo. Nous développons des applications web, mobiles et des solutions logicielles sur mesure pour transformer vos idées en réalité numérique.",
+              "url": "https://www.lafia.tech",
+              "logo": "https://www.lafia.tech/logo.png",
+              "image": "https://i.ibb.co/bRq1S0Zx/Frame-6.png",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dongoyo",
+                "addressLocality": "Kara",
+                "addressCountry": "TG"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+228-98784589",
+                "contactType": "customer service",
+                "email": "em.djatika@gmail.com"
+              },
+              "sameAs": [
+                "https://web.facebook.com/emanuel.djatika.7",
+                "https://www.linkedin.com/in/emanuel-djatika-283390276/",
+                "https://github.com/em-djatika"
+              ],
+              "service": [
+                {
+                  "@type": "Service",
+                  "name": "Création de Logiciels",
+                  "description": "Développement de logiciels sur mesure et solutions logicielles personnalisées"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Solutions Digitales",
+                  "description": "Conception et développement de solutions digitales innovantes"
+                },
+                {
+                  "@type": "Service", 
+                  "name": "Développement Web",
+                  "description": "Création de sites web modernes et applications web"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Développement Mobile",
+                  "description": "Applications mobiles iOS et Android"
+                }
+              ],
+              "areaServed": {
+                "@type": "Country",
+                "name": "Togo"
+              }
+            })
+          }}
+        />
       </head>
       <body
         className={`${plusJakartaSans.variable} ${dmSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
