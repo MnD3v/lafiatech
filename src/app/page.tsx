@@ -42,8 +42,8 @@ export default function Home() {
         <Services></Services>
 
         <About></About>
-        <Tarif></Tarif>
         <Applications></Applications>
+        <Tarif></Tarif>
         <Formation></Formation>
         <Dispo></Dispo>
         <Realisations></Realisations>
