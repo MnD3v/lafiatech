@@ -4,8 +4,9 @@ import About from "./compents/garantis";
 import Presentation from "./compents/presentation";
 import Dispo from "./compents/dispo";
 import Tarif from "./compents/tarif";
-import Realisations from "./compents/realisations";
+import Applications from "./compents/applications";
 import Formation from "./compents/formation";
+import Realisations from "./compents/realisations";
 import FixedAppBar from "./compents/fixed_app_bar";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -42,6 +43,7 @@ export default function Home() {
 
         <About></About>
         <Tarif></Tarif>
+        <Applications></Applications>
         <Formation></Formation>
         <Dispo></Dispo>
         <Realisations></Realisations>

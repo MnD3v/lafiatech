@@ -2,9 +2,12 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 
 const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
     const [showAppBar, setShow] = useState(false)
+    const router = useRouter()
+    const pathname = usePathname()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,6 +22,32 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+    // Gérer le scroll automatique quand on arrive sur la page avec un hash
+    useEffect(() => {
+        if (pathname === '/' && window.location.hash) {
+            const hash = window.location.hash.substring(1) // Enlever le #
+            setTimeout(() => {
+                const element = document.getElementById(hash)
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                }
+            }, 100) // Petit délai pour s'assurer que la page est chargée
+        }
+    }, [pathname])
+
+    const handleNavigation = (sectionId: string) => {
+        if (pathname === '/') {
+            // Si on est sur la page principale, scroll vers la section
+            const element = document.getElementById(sectionId)
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' })
+            }
+        } else {
+            // Si on n'est pas sur la page principale, rediriger vers la page principale avec la section
+            router.push(`/#${sectionId}`)
+        }
+    }
 
     return (
         <motion.div 
@@ -40,12 +69,12 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
                     
                     {/* Navigation Links - Hidden on mobile, visible on desktop */}
                     <div className="hidden lg:flex items-center space-x-8">
-                        <a href="#services" className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Services</a>
-                        <a href="#garantis" className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Garanties</a>
-                        <a href="#tarif" className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Tarifs</a>
-                        <a href="#formation" className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Formations</a>
-                        <a href="#realisations" className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Projets</a>
-                        <a href="#blog" className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Blog</a>
+                        <button onClick={() => handleNavigation('services')} className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Services</button>
+                        <button onClick={() => handleNavigation('garantis')} className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Garanties</button>
+                        <button onClick={() => handleNavigation('tarif')} className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Tarifs</button>
+                        <button onClick={() => handleNavigation('formation')} className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Formations</button>
+                        <button onClick={() => handleNavigation('applications')} className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Applications</button>
+                        <button onClick={() => handleNavigation('blog')} className="text-gray-700 hover:text-[#FF2600] transition-colors font-medium">Blog</button>
                     </div>
                     
                     {/* Action Buttons */}
