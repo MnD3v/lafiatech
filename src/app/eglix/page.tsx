@@ -249,22 +249,28 @@ const EglixPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestion des Membres</h3>
+                            <div className="mb-4">
+                                <p className="text-gray-700 font-medium mb-2">Comment ça marche :</p>
+                                <p className="text-gray-600 text-sm">
+                                    Création et gestion des membres, obtenez des statistiques claires des membres selon les âges, les sexes, les statuts de baptême, les groupes d'âge et les catégories spirituelles. Suivez l'évolution spirituelle de chaque membre avec un historique complet.
+                                </p>
+                            </div>
                             <ul className="text-gray-600 space-y-3">
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Profils détaillés avec photos</span>
+                                    <span>Profils détaillés avec photos et informations complètes</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Système de remarques dynamiques</span>
+                                    <span>Système de remarques dynamiques et annotations</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Suivi spirituel et démographique</span>
+                                    <span>Suivi spirituel et démographique avec graphiques</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Recherche et filtres avancés</span>
+                                    <span>Recherche et filtres avancés par critères multiples</span>
                                 </li>
                             </ul>
                         </motion.div>
@@ -282,22 +288,28 @@ const EglixPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestion Financière</h3>
+                            <div className="mb-4">
+                                <p className="text-gray-700 font-medium mb-2">Comment ça marche :</p>
+                                <p className="text-gray-600 text-sm">
+                                    Enregistrement automatique des dîmes, offrandes et dons avec catégorisation intelligente. Génération de rapports financiers détaillés avec analyses de tendances, projections budgétaires et suivi des objectifs financiers de l'église.
+                                </p>
+                            </div>
                             <ul className="text-gray-600 space-y-3">
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Dîmes et offrandes</span>
+                                    <span>Dîmes et offrandes avec calcul automatique des pourcentages</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Dons et dépenses</span>
+                                    <span>Dons et dépenses avec catégorisation par projet</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Rapports financiers détaillés</span>
+                                    <span>Rapports financiers détaillés avec graphiques interactifs</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Suivi des budgets par projet</span>
+                                    <span>Suivi des budgets par projet avec alertes automatiques</span>
                                 </li>
                             </ul>
                         </motion.div>
@@ -315,22 +327,28 @@ const EglixPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Journal d'Activités</h3>
+                            <div className="mb-4">
+                                <p className="text-gray-700 font-medium mb-2">Comment ça marche :</p>
+                                <p className="text-gray-600 text-sm">
+                                    Traçabilité complète des événements spirituels importants : mariages, naissances, baptêmes, confirmations, funérailles. Enregistrement chronologique avec photos et documents officiels stockés dans le cloud pour conserver toutes les traces de la vie spirituelle de l'église.
+                                </p>
+                            </div>
                             <ul className="text-gray-600 space-y-3">
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Événements spirituels et matériels</span>
+                                    <span>Mariages, baptêmes, naissances avec horodatage précis</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Upload d'images avec stockage cloud</span>
+                                    <span>Photos et documents officiels stockés dans le cloud</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Catégorisation automatique</span>
+                                    <span>Catégorisation automatique par type d'événement spirituel</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Recherche et filtres avancés</span>
+                                    <span>Recherche et filtres par famille, date et événement</span>
                                 </li>
                             </ul>
                         </motion.div>
@@ -349,22 +367,28 @@ const EglixPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Rapports Avancés</h3>
+                            <div className="mb-4">
+                                <p className="text-gray-700 font-medium mb-2">Comment ça marche :</p>
+                                <p className="text-gray-600 text-sm">
+                                    Génération automatique de KPIs sophistiqués avec analyses statistiques en temps réel. Projections prédictives basées sur l'historique et exports personnalisés en CSV, Excel et PDF pour une prise de décision éclairée.
+                                </p>
+                            </div>
                             <ul className="text-gray-600 space-y-3">
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>KPIs sophistiqués</span>
+                                    <span>KPIs sophistiqués avec métriques personnalisables</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Analyses statistiques</span>
+                                    <span>Analyses statistiques avec graphiques interactifs</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Projections prédictives</span>
+                                    <span>Projections prédictives basées sur l'IA</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Exports CSV/Excel/PDF</span>
+                                    <span>Exports CSV/Excel/PDF avec formats personnalisés</span>
                                 </li>
                             </ul>
                         </motion.div>
@@ -382,22 +406,28 @@ const EglixPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Sécurité Avancée</h3>
+                            <div className="mb-4">
+                                <p className="text-gray-700 font-medium mb-2">Comment ça marche :</p>
+                                <p className="text-gray-600 text-sm">
+                                    Authentification multi-facteurs avec gestion granulaire des rôles et permissions. Protection avancée contre les attaques avec chiffrement des données et surveillance continue de la sécurité pour garantir la confidentialité des informations de l'église.
+                                </p>
+                            </div>
                             <ul className="text-gray-600 space-y-3">
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Authentification sécurisée</span>
+                                    <span>Authentification sécurisée avec 2FA et OTP</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Rôles et permissions</span>
+                                    <span>Rôles et permissions granulaires par fonction</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Protection contre les attaques</span>
+                                    <span>Protection contre les attaques avec chiffrement AES-256</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="w-2 h-2 bg-[#FF2600] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                    <span>Système de sécurité avancé</span>
+                                    <span>Système de sécurité avancé avec surveillance 24/7</span>
                                 </li>
                             </ul>
                         </motion.div>
