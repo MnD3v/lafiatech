@@ -126,7 +126,7 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.15 }}
                 className="fixed inset-0 bg-black/50 z-40 lg:hidden"
                 onClick={() => setIsMobileMenuOpen(false)}
             />
@@ -136,17 +136,12 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
         <motion.div
             initial={{ x: "100%" }}
             animate={{ x: isMobileMenuOpen ? 0 : "100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
             className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 lg:hidden"
         >
             <div className="flex flex-col h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                    <img 
-                        src="/logo.png" 
-                        alt="LafiaTech" 
-                        className="h-8 w-auto"
-                    />
+                <div className="flex items-center justify-end p-6 border-b border-gray-200">
                     <button 
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="p-2 text-gray-700 hover:text-[#FF2600] transition-colors"
