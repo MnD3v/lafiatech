@@ -45,11 +45,11 @@ export default function BlogContent({ post, relatedPosts }: BlogContentProps) {
         <div className="max-w-4xl mx-auto p-3 md:p-8">
             {post.mainImage && (
                 <div className="mb-12 relative group">
-                    <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500">
+                    <div className="relative rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500">
                         <img
                             src={post.mainImage}
                             alt={post.title}
-                            className="w-full h-[450px] md:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                         />
                         {/* Overlay gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
