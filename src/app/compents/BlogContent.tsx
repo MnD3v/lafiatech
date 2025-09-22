@@ -99,11 +99,11 @@ export default function BlogContent({ post, relatedPosts }: BlogContentProps) {
 
             {post.author && (
                 <div className="mt-16 mb-16">
-                    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:shadow-[#FF2600]/5 transition-all duration-300">
-                        <div className="flex items-start gap-6">
+                    <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-xl hover:shadow-[#FF2600]/5 transition-all duration-300">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
                             {post.author.image?.asset?.url && (
                                 <div className="flex-shrink-0">
-                                    <div className="w-20 h-20 bg-gradient-to-br from-[#FF2600]/10 to-[#FF2600]/20 rounded-2xl p-1">
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#FF2600]/10 to-[#FF2600]/20 rounded-2xl p-1">
                                         <Image
                                             src={post.author.image.asset.url}
                                             alt={post.author.name}
@@ -114,23 +114,25 @@ export default function BlogContent({ post, relatedPosts }: BlogContentProps) {
                                     </div>
                                 </div>
                             )}
-                            <div className="flex-1">
-                                <div className="flex items-center gap-3 mb-3">
+                            <div className="flex-1 text-center sm:text-left">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3">
                                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 font-dm-sans">
                                         {post.author.name}
                                     </h3>
-                                    <div className="w-2 h-2 bg-[#FF2600] rounded-full"></div>
-                                    <span className="text-sm text-gray-500 font-dm-sans">Auteur</span>
+                                    <div className="flex items-center justify-center sm:justify-start gap-2">
+                                        <div className="w-2 h-2 bg-[#FF2600] rounded-full"></div>
+                                        <span className="text-sm text-gray-500 font-dm-sans">Auteur</span>
+                                    </div>
                                 </div>
                                 {post.author.bio && (
-                                    <div className="text-gray-600 leading-relaxed font-dm-sans">
+                                    <div className="text-gray-600 leading-relaxed font-dm-sans text-sm sm:text-base">
                                         <PortableText 
                                             value={post.author.bio} 
                                             components={portableTextComponents}
                                         />
                                     </div>
                                 )}
-                                <div className="mt-4 flex items-center gap-4">
+                                <div className="mt-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
                                     <div className="flex items-center gap-2 text-sm text-gray-500">
                                         <svg className="w-4 h-4 text-[#FF2600]" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
