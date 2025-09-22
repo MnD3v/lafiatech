@@ -1,6 +1,8 @@
 "use client";
 
 import { PortableTextComponents } from "@portabletext/react";
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '../sanity/client';
 
 export const portableTextComponents: PortableTextComponents = {
     types: {
@@ -9,18 +11,22 @@ export const portableTextComponents: PortableTextComponents = {
                 return null;
             }
 
-            // Construire l'URL de l'image à partir de la référence
-            const imageUrl = value.asset._ref
-                ? `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${value.asset._ref.replace('image-', '').replace('-jpg', '.jpg').replace('-png', '.png').replace('-webp', '.webp')}`
-                : '';
+            // Utiliser l'URL builder de Sanity pour une meilleure gestion des images
+            const builder = imageUrlBuilder(client);
+            const imageUrl = builder.image(value.asset).width(800).height(600).fit('max').auto('format').url();
 
             return (
                 <figure className="my-8">
                     <img
                         src={imageUrl}
-                        alt={value.alt || imageUrl}
+                        alt={value.alt || 'Image du blog'}
                         className="w-full h-auto rounded-lg shadow-lg"
                         loading="lazy"
+                        onError={(e) => {
+                            console.error('Erreur de chargement de l\'image:', imageUrl);
+                            console.error('Référence de l\'asset:', value.asset);
+                            e.currentTarget.style.display = 'none';
+                        }}
                     />
                     {value.caption && (
                         <figcaption className="text-center text-sm text-black mt-2 italic">
