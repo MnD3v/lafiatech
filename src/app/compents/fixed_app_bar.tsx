@@ -6,6 +6,7 @@ import { useRouter, usePathname } from 'next/navigation'
 
 const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
     const [showAppBar, setShow] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const router = useRouter()
     const pathname = usePathname()
 
@@ -37,6 +38,7 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
     }, [pathname])
 
     const handleNavigation = (sectionId: string) => {
+        setIsMobileMenuOpen(false) // Fermer le menu mobile
         if (pathname === '/') {
             // Si on est sur la page principale, scroll vers la section
             const element = document.getElementById(sectionId)
@@ -49,7 +51,12 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
         }
     }
 
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen)
+    }
+
     return (
+        <>
         <motion.div 
             className="fixed w-full bg-white shadow-sm border-b border-gray-100 z-50"
             initial={{ y: -200 }}
@@ -96,15 +103,115 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
                         </button>
                         
                         {/* Mobile Menu Button */}
-                        <button className="lg:hidden p-2 text-gray-700 hover:text-[#FF2600] transition-colors">
+                        <button 
+                            onClick={toggleMobileMenu}
+                            className="lg:hidden p-2 text-gray-700 hover:text-[#FF2600] transition-colors"
+                        >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                {isMobileMenuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                )}
                             </svg>
                         </button>
                     </div>
                 </div>
             </div>
         </motion.div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+        )}
+
+        {/* Mobile Menu Sidebar */}
+        <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: isMobileMenuOpen ? 0 : "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 lg:hidden"
+        >
+            <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                    <img 
+                        src="/logo.png" 
+                        alt="LafiaTech" 
+                        className="h-8 w-auto"
+                    />
+                    <button 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="p-2 text-gray-700 hover:text-[#FF2600] transition-colors"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Navigation Links */}
+                <div className="flex-1 px-6 py-8">
+                    <nav className="space-y-6">
+                        <button 
+                            onClick={() => handleNavigation('services')} 
+                            className="block w-full text-left text-lg font-medium text-gray-700 hover:text-[#FF2600] transition-colors py-2"
+                        >
+                            Services
+                        </button>
+                        <button 
+                            onClick={() => handleNavigation('garantis')} 
+                            className="block w-full text-left text-lg font-medium text-gray-700 hover:text-[#FF2600] transition-colors py-2"
+                        >
+                            Garanties
+                        </button>
+                        <button 
+                            onClick={() => handleNavigation('tarif')} 
+                            className="block w-full text-left text-lg font-medium text-gray-700 hover:text-[#FF2600] transition-colors py-2"
+                        >
+                            Tarifs
+                        </button>
+                        <button 
+                            onClick={() => handleNavigation('formation')} 
+                            className="block w-full text-left text-lg font-medium text-gray-700 hover:text-[#FF2600] transition-colors py-2"
+                        >
+                            Formations
+                        </button>
+                        <button 
+                            onClick={() => handleNavigation('applications')} 
+                            className="block w-full text-left text-lg font-medium text-gray-700 hover:text-[#FF2600] transition-colors py-2"
+                        >
+                            Applications
+                        </button>
+                        <button 
+                            onClick={() => handleNavigation('blog')} 
+                            className="block w-full text-left text-lg font-medium text-gray-700 hover:text-[#FF2600] transition-colors py-2"
+                        >
+                            Blog
+                        </button>
+                    </nav>
+                </div>
+
+                {/* Footer Actions */}
+                <div className="p-6 border-t border-gray-200 space-y-4">
+                    <button className="w-full px-6 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                        PRENDRE UN RENDEZ VOUS
+                    </button>
+                    <div className="flex items-center justify-center space-x-2">
+                        <span className="text-sm">🇫🇷</span>
+                        <span className="text-sm font-medium text-gray-700">FR</span>
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+        </>
     )
 }
 
