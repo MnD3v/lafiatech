@@ -87,10 +87,35 @@ const Presentation = () => {
                         initial={{ filter: "blur(20px)", opacity: 0 }}
                         animate={{ filter: "blur(0px)", opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.8 }}
-                        className="text-sm sm:text-base md:text-lg text-black mb-8 text-center">
+                        className="text-sm sm:text-base md:text-lg text-black mb-6 text-center">
                         Le but : Digitaliser. Automatiser. Optimiser.
                         <span className="text-[#FF2600] font-medium"> En 30 jours chrono.</span>
                     </motion.p>
+
+                    {/* Vulgarisation Section */}
+                    <motion.div
+                        initial={{ filter: "blur(20px)", opacity: 0 }}
+                        animate={{ filter: "blur(0px)", opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.9 }}
+                        className="bg-gradient-to-r from-[#FF2600]/10 to-orange-100 rounded-2xl p-6 mb-8 max-w-4xl mx-auto"
+                    >
+                        <div className="text-center">
+                            <div className="flex items-center justify-center mb-4">
+                                <svg className="w-8 h-8 text-[#FF2600] mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <h2 className="text-xl sm:text-2xl font-bold text-black">
+                                    Vulgarisation des Compétences Numériques
+                                </h2>
+                            </div>
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                                <span className="font-semibold text-[#FF2600]">LafiaTech</span> est une entreprise spécialisée dans la 
+                                <span className="font-semibold"> vulgarisation des compétences numériques</span> au Togo. 
+                                Nous démocratisons l'accès aux technologies en rendant les solutions digitales accessibles 
+                                et compréhensibles pour tous, des PME aux grandes entreprises.
+                            </p>
+                        </div>
+                    </motion.div>
 
                     {/* Feature Tags */}
                     <motion.div

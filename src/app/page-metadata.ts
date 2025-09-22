@@ -1,9 +1,12 @@
 import { Metadata } from "next";
 
 export const homePageMetadata: Metadata = {
-  title: "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
-  description: "LafiaTech est une boîte de création de logiciels et solutions digitales au Togo. Nous développons des applications web, mobiles et des solutions logicielles sur mesure pour transformer vos idées en réalité numérique. Basé à Kara, Togo.",
+  title: "LafiaTech - Vulgarisation des Compétences Numériques & Création de Logiciels au Togo",
+  description: "LafiaTech est une entreprise de vulgarisation des compétences numériques au Togo. Nous créons des logiciels et solutions digitales sur mesure tout en démocratisant l'accès aux technologies. Développement web, mobile et solutions logicielles à Kara, Togo.",
   keywords: [
+    "vulgarisation compétences numériques Togo",
+    "démocratisation technologies Togo",
+    "formation numérique Togo",
     "création logiciel Togo",
     "solutions digitales Togo",
     "développement logiciel Togo",
@@ -18,11 +21,12 @@ export const homePageMetadata: Metadata = {
     "Dongoyo",
     "agence développement logiciel",
     "développeur logiciel Togo",
-    "solutions logicielles Togo"
+    "solutions logicielles Togo",
+    "entreprise vulgarisation numérique"
   ],
   openGraph: {
-    title: "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
-    description: "Boîte de création de logiciels et solutions digitales au Togo. Développement d'applications web, mobiles et solutions logicielles sur mesure.",
+    title: "LafiaTech - Vulgarisation des Compétences Numériques & Création de Logiciels au Togo",
+    description: "Entreprise de vulgarisation des compétences numériques au Togo. Création de logiciels et solutions digitales sur mesure pour démocratiser l'accès aux technologies.",
     url: "https://www.lafia.tech",
     siteName: "LafiaTech",
     images: [
@@ -38,8 +42,8 @@ export const homePageMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
-    description: "Boîte de création de logiciels et solutions digitales au Togo. Développement d'applications web, mobiles et solutions logicielles sur mesure.",
+    title: "LafiaTech - Vulgarisation des Compétences Numériques & Création de Logiciels au Togo",
+    description: "Entreprise de vulgarisation des compétences numériques au Togo. Création de logiciels et solutions digitales sur mesure.",
     images: ["https://i.ibb.co/bRq1S0Zx/Frame-6.png"],
   },
   alternates: {
