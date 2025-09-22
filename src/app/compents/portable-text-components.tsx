@@ -3,6 +3,58 @@
 import { PortableTextComponents } from "@portabletext/react";
 import imageUrlBuilder from '@sanity/image-url';
 import { client } from '../sanity/client';
+import { useState } from 'react';
+import ImageModal from './ImageModal';
+
+// Composant pour les images avec modal
+function ImageComponent({ imageUrl, fullSizeImageUrl, alt, caption }: {
+    imageUrl: string;
+    fullSizeImageUrl: string;
+    alt: string;
+    caption?: string;
+}) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+        <>
+            <figure className="my-8 cursor-pointer group" onClick={() => setIsModalOpen(true)}>
+                <div className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105">
+                    <img
+                        src={imageUrl}
+                        alt={alt}
+                        className="w-full h-auto"
+                        loading="lazy"
+                        onError={(e) => {
+                            console.error('Erreur de chargement de l\'image:', imageUrl);
+                            e.currentTarget.style.display = 'none';
+                        }}
+                    />
+                    {/* Overlay avec icône de zoom */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3">
+                            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                {caption && (
+                    <figcaption className="text-center text-sm text-black mt-2 italic">
+                        {caption}
+                    </figcaption>
+                )}
+            </figure>
+
+            <ImageModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                imageUrl={fullSizeImageUrl}
+                alt={alt}
+                caption={caption}
+            />
+        </>
+    );
+}
 
 export const portableTextComponents: PortableTextComponents = {
     types: {
@@ -14,27 +66,14 @@ export const portableTextComponents: PortableTextComponents = {
             // Utiliser l'URL builder de Sanity pour une meilleure gestion des images
             const builder = imageUrlBuilder(client);
             const imageUrl = builder.image(value.asset).width(800).height(600).fit('max').auto('format').url();
+            const fullSizeImageUrl = builder.image(value.asset).width(1200).height(800).fit('max').auto('format').url();
 
-            return (
-                <figure className="my-8">
-                    <img
-                        src={imageUrl}
-                        alt={value.alt || 'Image du blog'}
-                        className="w-full h-auto rounded-lg shadow-lg"
-                        loading="lazy"
-                        onError={(e) => {
-                            console.error('Erreur de chargement de l\'image:', imageUrl);
-                            console.error('Référence de l\'asset:', value.asset);
-                            e.currentTarget.style.display = 'none';
-                        }}
-                    />
-                    {value.caption && (
-                        <figcaption className="text-center text-sm text-black mt-2 italic">
-                            {value.caption}
-                        </figcaption>
-                    )}
-                </figure>
-            );
+            return <ImageComponent 
+                imageUrl={imageUrl} 
+                fullSizeImageUrl={fullSizeImageUrl}
+                alt={value.alt || 'Image du blog'}
+                caption={value.caption}
+            />;
         },
     },
     block: {
