@@ -72,6 +72,28 @@ export const siteMetadata: Metadata = {
   },
   verification: {
     google: "your-google-verification-code", // À remplacer par le vrai code
+    yandex: "your-yandex-verification-code", // À remplacer par le vrai code
+    yahoo: "your-yahoo-verification-code", // À remplacer par le vrai code
   },
   category: "technology",
+  other: {
+    "geo.region": "TG",
+    "geo.country": "Togo",
+    "geo.placename": "Kara, Togo",
+    "DC.title": "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
+    "DC.creator": "LafiaTech",
+    "DC.subject": "Création logiciel, Solutions digitales, Développement web, Togo",
+    "DC.description": "Boîte de création de logiciels et solutions digitales au Togo",
+    "DC.publisher": "LafiaTech",
+    "DC.contributor": "LafiaTech",
+    "DC.date": "2024",
+    "DC.type": "Website",
+    "DC.format": "text/html",
+    "DC.identifier": "https://www.lafia.tech",
+    "DC.source": "https://www.lafia.tech",
+    "DC.language": "fr",
+    "DC.relation": "https://www.lafia.tech",
+    "DC.coverage": "Togo",
+    "DC.rights": "Copyright LafiaTech",
+  },
 };

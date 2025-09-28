@@ -111,6 +111,50 @@ export default function RootLayout({
               "areaServed": {
                 "@type": "Country",
                 "name": "Togo"
+              },
+              "foundingDate": "2024",
+              "numberOfEmployees": "1-10",
+              "priceRange": "$$",
+              "paymentAccepted": "Cash, Bank Transfer",
+              "currenciesAccepted": "XOF, EUR, USD",
+              "openingHours": "Mo-Fr 08:00-18:00",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Services LafiaTech",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Création de Logiciels",
+                      "description": "Développement de logiciels sur mesure"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Solutions Digitales",
+                      "description": "Conception de solutions digitales innovantes"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Développement Web",
+                      "description": "Création de sites web modernes"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Développement Mobile",
+                      "description": "Applications mobiles iOS et Android"
+                    }
+                  }
+                ]
               }
             })
           }}
