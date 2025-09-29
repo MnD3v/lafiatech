@@ -167,9 +167,8 @@ export default function RootLayout({
         <footer className="relative flex justify-center bg-black p-9 pt-9 md:pt-24 text-white overflow-hidden max-sm:text-sm">
           <div className="absolute -bottom-12 -left-24 h-36 w-64 rounded-full bg-[#FF2600]/10 z-0 -rotate-45"></div>
           <div className="relative z-10 max flex flex-wrap justify-center gap-9">
-
-            <div>
-              <img src="/logo-white.png" alt="" className="w-12" />
+            <div >
+              <img src="/logo-white.png" alt="" className="h-16" />
               <p className="w-80 mt-6">Chez LafiaTech, des solutions web et mobiles sur mesure pour donner vie à vos projets avec efficacité et innovation.</p>
               <div className="my-6 flex gap-2">
                     {socials.map((element, index) => (
