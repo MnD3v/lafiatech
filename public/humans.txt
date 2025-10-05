@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Emanuel Djatika -- Founder & Developer -- em.djatika@gmail.com
+    LafiaTech -- Company -- https://www.lafia.tech
+
+# THANKS
+
+    Next.js -- Framework -- https://nextjs.org/
+    React -- Library -- https://reactjs.org/
+    Tailwind CSS -- Styling -- https://tailwindcss.com/
+    TypeScript -- Language -- https://www.typescriptlang.org/
+    Sanity -- CMS -- https://www.sanity.io/
+
+# SITE
+
+    Last update: 2024/12/19
+    Language: French
+    Doctype: HTML5
+    IDE: VS Code
+    Standards: HTML5, CSS3, ES6+
+    Components: React, Next.js
+    Software: Node.js, npm

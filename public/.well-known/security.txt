@@ -1,0 +1,8 @@
+Contact: mailto:em.djatika@gmail.com
+Contact: https://www.lafia.tech/contact
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://www.lafia.tech/pgp-key.txt
+Preferred-Languages: fr, en
+Canonical: https://www.lafia.tech/.well-known/security.txt
+Policy: https://www.lafia.tech/privacy-policy
+Hiring: https://www.lafia.tech/careers

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test SEO - LafiaTech</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 20px; 
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 { 
+            color: #FF2600; 
+            margin-bottom: 30px; 
+            font-size: 2.5em;
+            text-align: center;
+        }
+        h2 { 
+            color: #333; 
+            margin: 30px 0 15px; 
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FF2600;
+        }
+        .test-item { 
+            background: #f8f9fa; 
+            padding: 20px; 
+            margin: 15px 0; 
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .status { 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .warning { background: #fff3cd; color: #856404; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { 
+            background: #FF2600; 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            border-radius: 10px; 
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        button:hover { 
+            background: #cc1e00; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,38,0,0.3);
+        }
+        code { 
+            background: #2d3748; 
+            color: #68d391; 
+            padding: 2px 8px; 
+            border-radius: 5px; 
+            font-family: 'Courier New', monospace;
+        }
+        .url-input { 
+            width: 100%; 
+            padding: 15px; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 10px; 
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .result { 
+            background: #2d3748; 
+            color: #f7fafc; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-top: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .loading { 
+            display: none; 
+            text-align: center; 
+            padding: 20px; 
+        }
+        .spinner { 
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #FF2600;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+        }
+        .card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            border-color: #FF2600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Test SEO - LafiaTech</h1>
+        
+        <div class="test-item">
+            <strong>URL du site :</strong>
+            <input type="text" class="url-input" id="siteUrl" value="https://www.lafia.tech" />
+        </div>
+
+        <h2>📋 Tests automatiques</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>1. Test robots.txt</h3>
+                <p>Vérifie que robots.txt ne bloque pas l'indexation</p>
+                <button onclick="testRobots()">🤖 Tester robots.txt</button>
+            </div>
+            
+            <div class="card">
+                <h3>2. Test sitemap.xml</h3>
+                <p>Vérifie que le sitemap est accessible</p>
+                <button onclick="testSitemap()">🗺️ Tester sitemap</button>
+            </div>
+            
+            <div class="card">
+                <h3>3. Test métadonnées</h3>
+                <p>Vérifie les balises meta essentielles</p>
+                <button onclick="testMetadata()">📝 Tester métadonnées</button>
+            </div>
+            
+            <div class="card">
+                <h3>4. Test données structurées</h3>
+                <p>Vérifie les schémas JSON-LD</p>
+                <button onclick="testStructuredData()">🏗️ Tester données structurées</button>
+            </div>
+            
+            <div class="card">
+                <h3>5. Test images OpenGraph</h3>
+                <p>Vérifie les images pour les réseaux sociaux</p>
+                <button onclick="testOpenGraph()">🖼️ Tester OpenGraph</button>
+            </div>
+            
+            <div class="card">
+                <h3>6. Test indexabilité</h3>
+                <p>Vérifie que la page est indexable</p>
+                <button onclick="testIndexability()">✅ Tester indexabilité</button>
+            </div>
+        </div>
+
+        <h2>🔗 Liens utiles</h2>
+        <div class="test-item">
+            <button onclick="openGSC()">🔍 Google Search Console</button>
+            <button onclick="openRichResults()">💎 Rich Results Test</button>
+            <button onclick="openFacebookDebugger()">📘 Facebook Debugger</button>
+            <button onclick="openTwitterValidator()">🐦 Twitter Card Validator</button>
+            <button onclick="openPageSpeedInsights()">⚡ PageSpeed Insights</button>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Chargement en cours...</p>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const siteUrl = () => document.getElementById('siteUrl').value;
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function showResult(html) {
+            hideLoading();
+            document.getElementById('result').innerHTML = '<div class="result">' + html + '</div>';
+        }
+
+        function testRobots() {
+            showLoading();
+            const url = siteUrl() + '/robots.txt';
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    let html = '<h3>✅ robots.txt trouvé !</h3><pre>';
+                    html += data;
+                    html += '</pre>';
+                    
+                    // Vérifications
+                    if (data.includes('Sitemap:')) {
+                        html += '<p class="status success">✅ Sitemap référencé</p>';
+                    } else {
+                        html += '<p class="status warning">⚠️ Sitemap non référencé</p>';
+                    }
+                    
+                    if (data.includes('Disallow: /.*\\.xml$') || data.includes('Disallow: /.*\\.json$')) {
+                        html += '<p class="status error">❌ PROBLÈME: robots.txt bloque les fichiers XML/JSON !</p>';
+                    } else {
+                        html += '<p class="status success">✅ Pas de blocage XML/JSON</p>';
+                    }
+                    
+                    if (data.includes('User-agent: Googlebot')) {
+                        html += '<p class="status success">✅ Instructions pour Googlebot</p>';
+                    }
+                    
+                    showResult(html);
+                })
+                .catch(error => {
+                    showResult('<p class="status error">❌ Erreur: ' + error.message + '</p>');
+                });
+        }
+
+        function testSitemap() {
+            showLoading();
+            const url = siteUrl() + '/sitemap.xml';
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    let html = '<h3>✅ sitemap.xml trouvé !</h3>';
+                    
+                    // Compter les URLs
+                    const urlCount = (data.match(/<url>/g) || []).length;
+                    html += '<p>📊 Nombre d\'URLs: <strong>' + urlCount + '</strong></p>';
+                    
+                    // Vérifier les pages importantes
+                    const importantPages = ['/', '/contact', '/blog', '/eglix'];
+                    html += '<h4>Pages importantes:</h4><ul>';
+                    importantPages.forEach(page => {
+                        const found = data.includes(siteUrl() + page);
+                        html += '<li>' + (found ? '✅' : '❌') + ' ' + page + '</li>';
+                    });
+                    html += '</ul>';
+                    
+                    html += '<details><summary>Voir le XML complet</summary><pre>' + 
+                            data.replace(/</g, '&lt;').replace(/>/g, '&gt;') + 
+                            '</pre></details>';
+                    
+                    showResult(html);
+                })
+                .catch(error => {
+                    showResult('<p class="status error">❌ Erreur: ' + error.message + '</p>');
+                });
+        }
+
+        function testMetadata() {
+            showLoading();
+            fetch(siteUrl())
+                .then(response => response.text())
+                .then(data => {
+                    let html = '<h3>Métadonnées détectées:</h3><ul>';
+                    
+                    // Extraire les métadonnées importantes
+                    const metaTags = {
+                        'description': data.match(/<meta name="description" content="([^"]+)"/),
+                        'keywords': data.match(/<meta name="keywords" content="([^"]+)"/),
+                        'author': data.match(/<meta name="author" content="([^"]+)"/),
+                        'og:title': data.match(/<meta property="og:title" content="([^"]+)"/),
+                        'og:description': data.match(/<meta property="og:description" content="([^"]+)"/),
+                        'og:image': data.match(/<meta property="og:image" content="([^"]+)"/),
+                        'twitter:card': data.match(/<meta name="twitter:card" content="([^"]+)"/),
+                    };
+                    
+                    for (let [tag, match] of Object.entries(metaTags)) {
+                        if (match && match[1]) {
+                            html += '<li>✅ <code>' + tag + '</code>: ' + match[1].substring(0, 100) + '...</li>';
+                        } else {
+                            html += '<li>❌ <code>' + tag + '</code>: Non trouvé</li>';
+                        }
+                    }
+                    
+                    html += '</ul>';
+                    
+                    // Vérifier le titre
+                    const titleMatch = data.match(/<title>([^<]+)<\/title>/);
+                    if (titleMatch) {
+                        html += '<p>✅ Titre: <strong>' + titleMatch[1] + '</strong></p>';
+                    }
+                    
+                    showResult(html);
+                })
+                .catch(error => {
+                    showResult('<p class="status error">❌ Erreur: ' + error.message + '</p>');
+                });
+        }
+
+        function testStructuredData() {
+            showLoading();
+            fetch(siteUrl())
+                .then(response => response.text())
+                .then(data => {
+                    let html = '<h3>Données structurées (JSON-LD):</h3>';
+                    
+                    const jsonLdMatches = data.match(/<script type="application\/ld\+json"[^>]*>([^<]+)<\/script>/g);
+                    
+                    if (jsonLdMatches && jsonLdMatches.length > 0) {
+                        html += '<p>✅ Trouvé <strong>' + jsonLdMatches.length + '</strong> schéma(s) JSON-LD</p>';
+                        
+                        jsonLdMatches.forEach((match, index) => {
+                            const jsonData = match.match(/>([^<]+)</)[1];
+                            try {
+                                const parsed = JSON.parse(jsonData);
+                                html += '<details><summary>Schéma ' + (index + 1) + ': ' + 
+                                        (parsed['@type'] || 'Unknown') + '</summary>';
+                                html += '<pre>' + JSON.stringify(parsed, null, 2) + '</pre></details>';
+                            } catch (e) {
+                                html += '<p class="status error">❌ Erreur de parsing du schéma ' + (index + 1) + '</p>';
+                            }
+                        });
+                    } else {
+                        html += '<p class="status warning">⚠️ Aucun schéma JSON-LD trouvé</p>';
+                    }
+                    
+                    showResult(html);
+                })
+                .catch(error => {
+                    showResult('<p class="status error">❌ Erreur: ' + error.message + '</p>');
+                });
+        }
+
+        function testOpenGraph() {
+            const html = `
+                <h3>Test des images OpenGraph</h3>
+                <p>Les images OpenGraph sont utilisées quand vous partagez votre lien sur les réseaux sociaux.</p>
+                
+                <h4>Image principale:</h4>
+                <img src="${siteUrl()}/eglix-landing.png" style="max-width: 100%; border-radius: 10px; margin: 10px 0;" 
+                     onerror="this.style.border='3px solid red'; this.alt='❌ Image non trouvée'" />
+                
+                <h4>Logo:</h4>
+                <img src="${siteUrl()}/logo.png" style="max-width: 300px; border-radius: 10px; margin: 10px 0;"
+                     onerror="this.style.border='3px solid red'; this.alt='❌ Logo non trouvé'" />
+                
+                <p><strong>Dimensions recommandées:</strong></p>
+                <ul>
+                    <li>OpenGraph: 1200x630px</li>
+                    <li>Twitter Card: 1200x630px</li>
+                    <li>Logo: 512x512px minimum</li>
+                </ul>
+            `;
+            showResult(html);
+        }
+
+        function testIndexability() {
+            showLoading();
+            fetch(siteUrl())
+                .then(response => {
+                    let html = '<h3>Test d\'indexabilité:</h3><ul>';
+                    
+                    // Status code
+                    html += '<li>' + (response.status === 200 ? '✅' : '❌') + 
+                            ' Status HTTP: <strong>' + response.status + '</strong></li>';
+                    
+                    // Headers
+                    const headers = response.headers;
+                    
+                    // X-Robots-Tag
+                    const xRobots = headers.get('x-robots-tag');
+                    if (xRobots && (xRobots.includes('noindex') || xRobots.includes('nofollow'))) {
+                        html += '<li>❌ X-Robots-Tag bloque l\'indexation: ' + xRobots + '</li>';
+                    } else {
+                        html += '<li>✅ Pas de X-Robots-Tag bloquant</li>';
+                    }
+                    
+                    // Content-Type
+                    const contentType = headers.get('content-type');
+                    html += '<li>' + (contentType && contentType.includes('text/html') ? '✅' : '❌') + 
+                            ' Content-Type: ' + contentType + '</li>';
+                    
+                    return response.text().then(data => {
+                        // Meta robots
+                        if (data.includes('noindex') || data.includes('nofollow')) {
+                            html += '<li>❌ Meta robots bloque l\'indexation</li>';
+                        } else {
+                            html += '<li>✅ Pas de meta robots bloquant</li>';
+                        }
+                        
+                        // Canonical
+                        const canonical = data.match(/<link rel="canonical" href="([^"]+)"/);
+                        if (canonical) {
+                            html += '<li>✅ Canonical trouvé: ' + canonical[1] + '</li>';
+                        } else {
+                            html += '<li>⚠️ Pas de balise canonical</li>';
+                        }
+                        
+                        html += '</ul>';
+                        
+                        const allGood = response.status === 200 && 
+                                      (!xRobots || (!xRobots.includes('noindex') && !xRobots.includes('nofollow'))) &&
+                                      !data.includes('noindex');
+                        
+                        if (allGood) {
+                            html += '<p class="status success">✅ Votre site EST indexable par Google !</p>';
+                        } else {
+                            html += '<p class="status error">❌ Votre site N\'EST PAS indexable - Corrigez les erreurs ci-dessus</p>';
+                        }
+                        
+                        showResult(html);
+                    });
+                })
+                .catch(error => {
+                    showResult('<p class="status error">❌ Erreur: ' + error.message + '</p>');
+                });
+        }
+
+        // Liens vers outils externes
+        function openGSC() {
+            window.open('https://search.google.com/search-console', '_blank');
+        }
+
+        function openRichResults() {
+            window.open('https://search.google.com/test/rich-results?url=' + encodeURIComponent(siteUrl()), '_blank');
+        }
+
+        function openFacebookDebugger() {
+            window.open('https://developers.facebook.com/tools/debug/?q=' + encodeURIComponent(siteUrl()), '_blank');
+        }
+
+        function openTwitterValidator() {
+            window.open('https://cards-dev.twitter.com/validator', '_blank');
+        }
+
+        function openPageSpeedInsights() {
+            window.open('https://pagespeed.web.dev/analysis?url=' + encodeURIComponent(siteUrl()), '_blank');
+        }
+    </script>
+</body>
+</html>

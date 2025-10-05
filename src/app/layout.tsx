@@ -45,10 +45,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        {/* Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"></link>
+        
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
@@ -56,6 +61,19 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="LafiaTech" />
+        
+        {/* Mobile Optimization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="format-detection" content="telephone=no" />
+        
+        {/* Language & Region */}
+        <meta httpEquiv="content-language" content="fr" />
+        <link rel="alternate" hrefLang="fr" href="https://www.lafia.tech" />
+        
+        {/* Author & Copyright */}
+        <meta name="author" content="LafiaTech" />
+        <meta name="copyright" content="LafiaTech 2024" />
+        <link rel="author" href="https://www.lafia.tech/humans.txt" />
         
         {/* Données structurées JSON-LD */}
         <script
@@ -68,7 +86,7 @@ export default function RootLayout({
               "description": "LafiaTech est une boîte de création de logiciels et solutions digitales au Togo. Nous développons des applications web, mobiles et des solutions logicielles sur mesure pour transformer vos idées en réalité numérique.",
               "url": "https://www.lafia.tech",
               "logo": "https://www.lafia.tech/logo.png",
-              "image": "https://i.ibb.co/bRq1S0Zx/Frame-6.png",
+              "image": "https://www.lafia.tech/eglix-landing.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Dongoyo",
@@ -156,6 +174,35 @@ export default function RootLayout({
                   }
                 ]
               }
+            })
+          }}
+        />
+        
+        {/* Schema WebSite pour la recherche */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "LafiaTech",
+              "description": "Site web officiel de LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
+              "url": "https://www.lafia.tech",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://www.lafia.tech/blog?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "LafiaTech",
+                "url": "https://www.lafia.tech",
+                "logo": "https://www.lafia.tech/logo.png"
+              },
+              "inLanguage": "fr-FR"
             })
           }}
         />

@@ -45,7 +45,7 @@ export const siteMetadata: Metadata = {
     description: "Boîte de création de logiciels et solutions digitales au Togo. Développement d'applications web, mobiles et solutions logicielles sur mesure.",
     images: [
       {
-        url: "https://i.ibb.co/bRq1S0Zx/Frame-6.png",
+        url: "https://www.lafia.tech/eglix-landing.png",
         width: 1200,
         height: 630,
         alt: "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
@@ -56,7 +56,7 @@ export const siteMetadata: Metadata = {
     card: "summary_large_image",
     title: "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
     description: "Boîte de création de logiciels et solutions digitales au Togo. Développement d'applications web, mobiles et solutions logicielles sur mesure.",
-    images: ["https://i.ibb.co/bRq1S0Zx/Frame-6.png"],
+    images: ["https://www.lafia.tech/eglix-landing.png"],
     creator: "@lafiatech",
   },
   robots: {
@@ -71,9 +71,9 @@ export const siteMetadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // À remplacer par le vrai code
-    yandex: "your-yandex-verification-code", // À remplacer par le vrai code
-    yahoo: "your-yahoo-verification-code", // À remplacer par le vrai code
+    google: "google-site-verification=YOUR_GOOGLE_VERIFICATION_CODE",
+    yandex: "yandex-verification=YOUR_YANDEX_VERIFICATION_CODE",
+    yahoo: "yahoo-site-verification=YOUR_YAHOO_VERIFICATION_CODE",
   },
   category: "technology",
   other: {

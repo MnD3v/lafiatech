@@ -3,6 +3,7 @@ Allow: /
 
 # Sitemap
 Sitemap: https://www.lafia.tech/sitemap.xml
+Sitemap: https://www.lafia.tech/sitemap.xml.gz
 
 # Crawl-delay
 Crawl-delay: 1
@@ -22,6 +23,8 @@ Allow: /blog/
 Allow: /articles/
 Allow: /contact/
 Allow: /eglix/
+Allow: /humans.txt
+Allow: /.well-known/
 
 # Specific bot instructions
 User-agent: Googlebot
@@ -44,4 +47,10 @@ User-agent: MJ12bot
 Disallow: /
 
 User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsSiteAudit
 Disallow: /

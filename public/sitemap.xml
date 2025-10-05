@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://www.lafia.tech/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.lafia.tech/eglix-landing.png</image:loc>
+      <image:title>LafiaTech - Création de Logiciels & Solutions Digitales au Togo</image:title>
+      <image:caption>Boîte de création de logiciels et solutions digitales au Togo</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Page Contact -->
+  <url>
+    <loc>https://www.lafia.tech/contact</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Blog -->
+  <url>
+    <loc>https://www.lafia.tech/blog</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Eglix -->
+  <url>
+    <loc>https://www.lafia.tech/eglix</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Articles -->
+  <url>
+    <loc>https://www.lafia.tech/articles</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Article spécifique -->
+  <url>
+    <loc>https://www.lafia.tech/articles/comment-un-site-web-bien-code-peut-booster-votre-entreprise</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>

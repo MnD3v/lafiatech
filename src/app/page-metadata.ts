@@ -31,7 +31,7 @@ export const homePageMetadata: Metadata = {
     siteName: "LafiaTech",
     images: [
       {
-        url: "https://i.ibb.co/bRq1S0Zx/Frame-6.png",
+        url: "https://www.lafia.tech/eglix-landing.png",
         width: 1200,
         height: 630,
         alt: "LafiaTech - Création de Logiciels & Solutions Digitales au Togo",
@@ -44,7 +44,7 @@ export const homePageMetadata: Metadata = {
     card: "summary_large_image",
     title: "LafiaTech - Vulgarisation des Compétences Numériques & Création de Logiciels au Togo",
     description: "Entreprise de vulgarisation des compétences numériques au Togo. Création de logiciels et solutions digitales sur mesure.",
-    images: ["https://i.ibb.co/bRq1S0Zx/Frame-6.png"],
+    images: ["https://www.lafia.tech/eglix-landing.png"],
   },
   alternates: {
     canonical: "https://www.lafia.tech",
