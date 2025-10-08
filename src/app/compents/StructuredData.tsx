@@ -45,12 +45,13 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
         };
 
       case 'article':
+        const articleData = data as Record<string, unknown>;
         return {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": data.title,
-          "description": data.description,
-          "image": data.image,
+          "headline": articleData.title,
+          "description": articleData.description,
+          "image": articleData.image,
           "author": {
             "@type": "Organization",
             "name": "LafiaTech"
@@ -63,20 +64,21 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
               "url": "https://www.lafia.tech/logo.png"
             }
           },
-          "datePublished": data.datePublished,
-          "dateModified": data.dateModified || data.datePublished,
+          "datePublished": articleData.datePublished,
+          "dateModified": articleData.dateModified || articleData.datePublished,
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": data.url
+            "@id": articleData.url
           }
         };
 
       case 'service':
+        const serviceData = data as Record<string, unknown>;
         return {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": data.name,
-          "description": data.description,
+          "name": serviceData.name,
+          "description": serviceData.description,
           "provider": {
             "@type": "Organization",
             "name": "LafiaTech",
@@ -86,7 +88,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
             "@type": "Country",
             "name": "Togo"
           },
-          "serviceType": data.serviceType,
+          "serviceType": serviceData.serviceType,
           "offers": {
             "@type": "Offer",
             "priceCurrency": "XOF",
