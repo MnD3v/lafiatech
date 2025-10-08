@@ -1,9 +1,27 @@
 "use client"
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FixedAppBar from '../compents/fixed_app_bar'
 
 const EglixPage = () => {
+    const [isVideoOpen, setIsVideoOpen] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
+    // Bloquer le scroll quand le modal est ouvert
+    useEffect(() => {
+        if (isVideoOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isVideoOpen])
     // Données structurées JSON-LD pour le SEO
     const structuredData = {
         "@context": "https://schema.org",
@@ -203,7 +221,7 @@ const EglixPage = () => {
                             transition={{ duration: 0.8, delay: 2.0 }}
                             className="flex justify-center"
                         >
-                            <div className="relative max-w-6xl w-full">
+                            <div className="relative max-w-6xl w-full group cursor-pointer" onClick={() => setIsVideoOpen(true)}>
                                 <img
                                     src="/eglix-landing.png"
                                     alt="Eglix - Interface de gestion d'église moderne au Togo développée par LafiaTech"
@@ -213,6 +231,31 @@ const EglixPage = () => {
                                     width="1200"
                                     height="630"
                                 />
+                                {/* Dark Overlay */}
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
+                                
+                                {/* YouTube Icon */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="transform transition-all duration-300 group-hover:scale-110">
+                                        {/* YouTube Logo SVG */}
+                                        <svg 
+                                            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 drop-shadow-2xl" 
+                                            viewBox="0 0 159 110" 
+                                            fill="none"
+                                        >
+                                            {/* Red YouTube background */}
+                                            <path 
+                                                d="M154 17.5c-1.82-6.73-7.07-12-13.8-13.8C128.2 0 79 0 79 0S29.8 0 17.8 3.7C11.07 5.5 5.82 10.77 4 17.5 0 29.5 0 55 0 55s0 25.5 4 37.5c1.82 6.73 7.07 12 13.8 13.8C29.8 110 79 110 79 110s49.2 0 61.2-3.7c6.73-1.8 11.98-7.07 13.8-13.8 4-12 4-37.5 4-37.5s0-25.5-4-37.5z" 
+                                                fill="#FF0000"
+                                            />
+                                            {/* White play button */}
+                                            <path 
+                                                d="M64 78.77V31.23L104 55l-40 23.77z" 
+                                                fill="white"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                 </div>
@@ -553,6 +596,45 @@ const EglixPage = () => {
                     </motion.div>
                 </div>
             </section>
+
+            {/* Video Modal Popup */}
+            {isMounted && isVideoOpen && (
+                <div 
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4"
+                    onClick={() => setIsVideoOpen(false)}
+                >
+                    <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="relative w-full max-w-5xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setIsVideoOpen(false)}
+                            className="absolute -top-12 right-0 text-white hover:text-red-600 transition-colors duration-200"
+                            aria-label="Fermer la vidéo"
+                        >
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        
+                        {/* YouTube Video Iframe */}
+                        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                            <iframe
+                                className="absolute top-0 left-0 w-full h-full rounded-lg shadow-2xl"
+                                src="https://www.youtube.com/embed/7oXzkCDxnGA?autoplay=1"
+                                title="Eglix - Vidéo de présentation"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
 
         </div>
     )
