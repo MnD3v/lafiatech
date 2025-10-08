@@ -2,7 +2,7 @@ import React from 'react';
 
 interface SEOSchemaProps {
   type: 'organization' | 'website' | 'webpage' | 'service' | 'article' | 'breadcrumb' | 'faq';
-  data: Record<string, unknown>;
+  data: Record<string, unknown> | Array<unknown>;
 }
 
 export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {

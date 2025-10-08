@@ -12,7 +12,7 @@ interface FAQItem {
 
 interface StructuredDataProps {
   type: 'breadcrumb' | 'faq' | 'article' | 'service';
-  data: Record<string, unknown>;
+  data: Record<string, unknown> | Array<unknown>;
 }
 
 export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {
@@ -22,7 +22,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
         return {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": data.map((item: BreadcrumbItem, index: number) => ({
+          "itemListElement": (data as BreadcrumbItem[]).map((item: BreadcrumbItem, index: number) => ({
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,
@@ -34,7 +34,7 @@ export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) =>
         return {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": data.map((item: FAQItem) => ({
+          "mainEntity": (data as FAQItem[]).map((item: FAQItem) => ({
             "@type": "Question",
             "name": item.question,
             "acceptedAnswer": {
