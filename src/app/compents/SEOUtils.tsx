@@ -12,7 +12,7 @@ export const generateMetaDescription = (description: string, maxLength: number =
 
 export const generateKeywords = (baseKeywords: string[], additionalKeywords: string[] = []): string[] => {
   const allKeywords = [...baseKeywords, ...additionalKeywords];
-  return [...new Set(allKeywords)]; // Remove duplicates
+  return Array.from(new Set(allKeywords)); // Remove duplicates
 };
 
 export const generateCanonicalUrl = (path: string, baseUrl: string = 'https://www.lafia.tech'): string => {
