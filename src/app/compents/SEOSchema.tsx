@@ -66,12 +66,13 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
         };
 
       case 'webpage':
+        const webpageData = data as Record<string, unknown>;
         return {
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": data.title,
-          "description": data.description,
-          "url": data.url,
+          "name": webpageData.title,
+          "description": webpageData.description,
+          "url": webpageData.url,
           "isPartOf": {
             "@type": "WebSite",
             "name": "LafiaTech",
@@ -81,17 +82,18 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
             "@type": "Organization",
             "name": "LafiaTech"
           },
-          "datePublished": data.datePublished,
-          "dateModified": data.dateModified || data.datePublished,
+          "datePublished": webpageData.datePublished,
+          "dateModified": webpageData.dateModified || webpageData.datePublished,
           "inLanguage": "fr-FR"
         };
 
       case 'service':
+        const serviceData = data as Record<string, unknown>;
         return {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": data.name,
-          "description": data.description,
+          "name": serviceData.name,
+          "description": serviceData.description,
           "provider": {
             "@type": "Organization",
             "name": "LafiaTech",
@@ -101,7 +103,7 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
             "@type": "Country",
             "name": "Togo"
           },
-          "serviceType": data.serviceType,
+          "serviceType": serviceData.serviceType,
           "offers": {
             "@type": "Offer",
             "priceCurrency": "XOF",
@@ -110,12 +112,13 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
         };
 
       case 'article':
+        const articleData = data as Record<string, unknown>;
         return {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": data.title,
-          "description": data.description,
-          "image": data.image,
+          "headline": articleData.title,
+          "description": articleData.description,
+          "image": articleData.image,
           "author": {
             "@type": "Organization",
             "name": "LafiaTech"
@@ -128,11 +131,11 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
               "url": `${baseUrl}/logo.png`
             }
           },
-          "datePublished": data.datePublished,
-          "dateModified": data.dateModified || data.datePublished,
+          "datePublished": articleData.datePublished,
+          "dateModified": articleData.dateModified || articleData.datePublished,
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": data.url
+            "@id": articleData.url
           },
           "inLanguage": "fr-FR"
         };
