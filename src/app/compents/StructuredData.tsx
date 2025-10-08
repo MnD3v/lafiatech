@@ -12,7 +12,7 @@ interface FAQItem {
 
 interface StructuredDataProps {
   type: 'breadcrumb' | 'faq' | 'article' | 'service';
-  data: any;
+  data: Record<string, unknown>;
 }
 
 export const StructuredData: React.FC<StructuredDataProps> = ({ type, data }) => {

@@ -150,7 +150,7 @@ export const validateSEOData = (data: {
   return errors;
 };
 
-export default {
+const seoUtils = {
   generateMetaTitle,
   generateMetaDescription,
   generateKeywords,
@@ -163,3 +163,5 @@ export default {
   generateBreadcrumbData,
   validateSEOData
 };
+
+export default seoUtils;

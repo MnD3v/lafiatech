@@ -2,7 +2,7 @@ import React from 'react';
 
 interface SEOSchemaProps {
   type: 'organization' | 'website' | 'webpage' | 'service' | 'article' | 'breadcrumb' | 'faq';
-  data: any;
+  data: Record<string, unknown>;
 }
 
 export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
@@ -141,7 +141,7 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
         return {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": data.map((item: any, index: number) => ({
+          "itemListElement": (data as Array<{name: string, url: string}>).map((item, index: number) => ({
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,
@@ -153,7 +153,7 @@ export const SEOSchema: React.FC<SEOSchemaProps> = ({ type, data }) => {
         return {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": data.map((item: any) => ({
+          "mainEntity": (data as Array<{question: string, answer: string}>).map((item) => ({
             "@type": "Question",
             "name": item.question,
             "acceptedAnswer": {
