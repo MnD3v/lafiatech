@@ -1,6 +1,6 @@
 import { Rule } from '@sanity/types';
 
-export default {
+const jobOfferSchema = {
   name: 'jobOffer',
   title: 'Offres d\'emploi',
   type: 'document',
@@ -74,7 +74,9 @@ export default {
       subtitle: 'type'
     }
   }
-}
+};
+
+export default jobOfferSchema;
 
 
 

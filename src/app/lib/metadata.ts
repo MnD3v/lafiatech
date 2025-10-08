@@ -41,7 +41,7 @@ export function generatePageMetadata({
       },
     },
     openGraph: {
-      type: type as any,
+      type: type as "website" | "article",
       locale: "fr_FR",
       url: url,
       siteName: "LafiaTech",

@@ -1,6 +1,6 @@
 import { Rule } from '@sanity/types';
 
-export default {
+const jobApplicationSchema = {
   name: 'jobApplication',
   title: 'Candidatures',
   type: 'document',
@@ -66,4 +66,6 @@ export default {
       subtitle: 'email'
     }
   }
-}
+};
+
+export default jobApplicationSchema;
